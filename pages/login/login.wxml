@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="loginBack">
+        <image src="/static/img/login/loginBack.png" class="loginBackImg"></image>
+        <image src="/static/img/login/logo.png" class="logoImg"></image>
+        <text class="appName">君安</text>
+    </view>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+            <text wx:if="{{index===''}}" class="pleaseSel">请选择企业</text>
+            <text wx:else class="haveSelect">{{array[index]}}</text>
+            <image src="/static/img/login/down.png" class="downArrow"></image>
+        </view>
+    </picker>
+    <input type="text" placeholder="请输入手机号" class="inputTel"/>
+    <view class="loginContainer">
+        <button class="loginBtn" hover-class="loginBtnActive">登录</button>
+    </view>
+</view>
