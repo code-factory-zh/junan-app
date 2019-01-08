@@ -5,4 +5,15 @@ page{
 }
 .container {
   height: 100%;
-} 
+}
+/* 头部样式 */
+.pageHead{
+  height: 116rpx;
+  background: #fff;
+  font-size: 30rpx;
+  color: #5a5a5a;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  line-height: 75rpx;
+}
