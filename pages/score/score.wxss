@@ -1,0 +1,33 @@
+/* pages/index/index.wxss */
+.title{
+    font-size: 30rpx;
+    line-height: 60rpx;
+    padding-left: 30rpx;
+    border-bottom: 1rpx solid #eee;
+}
+.line{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60rpx;
+    padding: 0 40rpx;
+    margin-top: 10rpx;
+}
+.date{
+    font-size: 30rpx;
+    color: #999;
+}
+.name{
+    font-size: 30rpx;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+.red{
+    color: #ff4400;
+}
+.redBar{
+    width: 6rpx;
+    height: 30rpx;
+    margin-right: 10rpx;
+}

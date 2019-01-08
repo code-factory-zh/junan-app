@@ -17,3 +17,10 @@ page{
   align-items: flex-end;
   line-height: 75rpx;
 }
+.pageHead .goBackImg{
+  position: absolute;
+  left: 20rpx;
+  top: 65rpx;
+  width: 34rpx;
+  height: 34rpx;
+}

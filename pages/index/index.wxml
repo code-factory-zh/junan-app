@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-    <view class="pageHead">安全工程宝典</view>
+    <view class="pageHead"><image src="/static/img/common/icon-left-black.png" class="goBackImg" bindtap="goBack"></image>安全工程宝典</view>
     <swiper class="slider" duration="{{300}}" previous-margin="53rpx" next-margin="30rpx" current="1">
         <!--<image src="/static/img/index/img1.png" class="sliderImg" bindtouchstart="touchStart" bindtouchend="touchEnd" ></image>-->
         <swiper-item>
@@ -15,6 +15,6 @@
     </swiper>
     <view class="menu">
         <image src="/static/img/index/knowlage.png" class="knowlage"></image>
-        <image src="/static/img/index/score.png" class="knowlage"></image>
+        <image src="/static/img/index/score.png" class="knowlage" bindtap="goScore"></image>
     </view>
 </view>
