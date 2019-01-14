@@ -30,7 +30,7 @@
     margin: 60rpx 50rpx 50rpx;
     height: 108rpx;
     line-height: 108rpx;
-    border: 1rpx solid #f2f2f2;
+    border: 2rpx solid #f2f2f2;
     border-radius: 54rpx;
     text-align: center;
     font-size: 30rpx;
@@ -48,7 +48,7 @@
 .inputTel{
     margin: 0 50rpx;
     height: 108rpx;
-    border: 1rpx solid #f2f2f2;
+    border: 2rpx solid #f2f2f2;
     border-radius: 54rpx;
     font-size: 30rpx;
     color: #999;

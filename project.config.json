@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.4.2",
 	"appid": "wxba8cb4b0cd6a3efb",
-	"projectname": "junan_app",
+	"projectname": "junan-app",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
