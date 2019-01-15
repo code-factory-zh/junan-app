@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="container">
+    <view class="pageHead"><image src="/static/img/common/icon-left-black.png" class="goBackImg" bindtap="goBack"></image>知识学堂</view>
+    <image src="/static/img/courseList/courseListBanner.png" class="banner"></image>
+    <view class="line">
+        <view class="courseInfo">
+            <view class="courseName">钳工入门1</view>
+            <view class="chapter">
+                <text>总章节</text><text class="num" style="margin-right: 100rpx;">35</text>
+                <text>已学习</text><text class="num">30</text>
+            </view>
+        </view>
+        <button class="examBtn redBtn" plain="true" size="mini">考试</button>
+    </view>
+    <view class="line">
+        <view class="courseInfo">
+            <view class="courseName">钳工入门2</view>
+            <view class="chapter">
+                <text>总章节</text><text class="num" style="margin-right: 100rpx;">30</text>
+                <text>已学习</text><text class="num">20</text>
+            </view>
+        </view>
+        <button class="examBtn disabledBtn" plain="true" size="mini">考试</button>
+    </view>
+</view>
