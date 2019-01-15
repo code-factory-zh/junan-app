@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/courseList/courseList",
-    "pages/index/index",
     "pages/login/login",
-    "pages/score/score"
+    "pages/index/index",
+    "pages/score/score",
+    "pages/courseList/courseList"
   ],
   "window":{
     "backgroundTextStyle":"light",

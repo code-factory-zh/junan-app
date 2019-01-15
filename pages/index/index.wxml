@@ -8,7 +8,7 @@
         </swiper-item>
     </swiper>
     <view class="menu">
-        <image src="/static/img/index/knowlage.png" class="knowlage"></image>
+        <image src="/static/img/index/knowlage.png" class="knowlage" bindtap="goCourseList"></image>
         <image src="/static/img/index/score.png" class="knowlage" bindtap="goScore"></image>
     </view>
 </view>

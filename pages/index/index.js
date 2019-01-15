@@ -14,5 +14,10 @@ Page({
         wx.navigateTo({
             url: '/pages/score/score'
         })
+    },
+    goCourseList: function () {
+        wx.navigateTo({
+            url: '/pages/courseList/courseList'
+        })
     }
 })
