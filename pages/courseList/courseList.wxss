@@ -1,4 +1,4 @@
-/* pages/index/index.wxss */
+/* pages/courseList/courseList.wxss */
 .banner{
     width: 100%;
     height: 250rpx;

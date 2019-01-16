@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/chapterList/chapterList",
     "pages/login/login",
     "pages/index/index",
     "pages/score/score",

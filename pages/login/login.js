@@ -57,9 +57,6 @@ Page({
             // console.log(this.data.phone)
             this.getLoginCode(userInfo)
         }
-        // wx.navigateTo({
-        //     url: '/pages/index/index'
-        // })
     },
     /**
      * 得到登录用的code
@@ -71,6 +68,9 @@ Page({
                 console.log(res)
                 this.setData({
                     code: res.code
+                })
+                wx.navigateTo({
+                    url: '/pages/index/index'
                 })
             }
         })
