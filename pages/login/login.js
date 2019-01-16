@@ -8,7 +8,8 @@ Page({
     data: {
         array: [],
         index: '',
-        phone: ''
+        phone: '',
+        code: ''
     },
     onLoad: function () {
         this.getCompanys()
@@ -47,13 +48,31 @@ Page({
         })
     },
     /**
-     * 登录
+     * 点击登录的回调
      **/
-    login: function () {
-        console.log(this.data.array[this.data.index])
-        console.log(this.data.phone)
+    getUserInfoCallback: function (userInfo) {
+        console.log(userInfo)
+        if (userInfo.detail.errMsg === 'getUserInfo:ok') {
+            // console.log(this.data.array[this.data.index])
+            // console.log(this.data.phone)
+            this.getLoginCode(userInfo)
+        }
         // wx.navigateTo({
         //     url: '/pages/index/index'
         // })
+    },
+    /**
+     * 得到登录用的code
+    **/
+    getLoginCode (userInfo) {
+        wx.login({
+            success: res => {
+                // 发送 res.code 到后台换取 openId, sessionKey, unionId
+                console.log(res)
+                this.setData({
+                    code: res.code
+                })
+            }
+        })
     }
 })

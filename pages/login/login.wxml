@@ -14,6 +14,6 @@
     </picker>
     <input type="text" placeholder="请输入手机号" value="{{phone}}" bindinput="bindKeyInput" class="inputTel"/>
     <view class="loginContainer">
-        <button class="loginBtn" hover-class="loginBtnActive" bindtap="login">登录</button>
+        <button class="loginBtn" hover-class="loginBtnActive" open-type="getUserInfo" bindgetuserinfo="getUserInfoCallback">登录</button>
     </view>
 </view>
