@@ -68,9 +68,44 @@ Page({
                 console.log(res)
                 this.setData({
                     code: res.code
-                })
-                wx.navigateTo({
-                    url: '/pages/index/index'
+                },() => {
+                    console.log(this.data.code)
+                    console.log(this.data.phone)
+                    console.log(this.data.array, this.data.index)
+                    if (this.data.index === '') {
+                        wx.showToast({
+                          title: '请选择企业',
+                          icon: 'none',
+                          duration: 2000
+                        })
+                        return false
+                    }else if (this.data.phone === '') {
+                       wx.showToast({
+                          title: '请输入手机号',
+                          icon: 'none',
+                          duration: 2000
+                        })
+                        return false
+                    }
+                    Login._login({
+                        code: this.data.code,
+                        company_id: this.data.array[this.data.index].id,
+                        mobile: this.data.phone
+                    }).then(result => {
+                        let login_res = result.data
+                         if (login_res.code == 0) {
+                             wx.setStorageSync('token', login_res.data.token)
+                             wx.navigateTo({
+                                url: '/pages/index/index'
+                            })
+                        } else {
+                            wx.showToast({
+                              title: login_res.msg,
+                              icon: 'none',
+                              duration: 2000
+                            })
+                        }
+                    })
                 })
             }
         })
