@@ -6,8 +6,8 @@
         <view class="courseInfo">
             <view class="courseName">钳工入门1</view>
             <view class="chapter">
-                <text>总章节</text><text class="num" style="margin-right: 100rpx;">35</text>
-                <text>已学习</text><text class="num">30</text>
+                <text>总章节 </text><text class="num" style="margin-right: 100rpx;">35</text>
+                <text>已学习 </text><text class="num">30</text>
             </view>
         </view>
         <button class="examBtn redBtn" plain="true" size="mini">考试</button>
@@ -16,8 +16,8 @@
         <view class="courseInfo">
             <view class="courseName">钳工入门2</view>
             <view class="chapter">
-                <text>总章节</text><text class="num" style="margin-right: 100rpx;">30</text>
-                <text>已学习</text><text class="num">20</text>
+                <text>总章节 </text><text class="num" style="margin-right: 100rpx;">30</text>
+                <text>已学习 </text><text class="num">20</text>
             </view>
         </view>
         <button class="examBtn disabledBtn" plain="true" size="mini">考试</button>
