@@ -53,8 +53,6 @@ Page({
     getUserInfoCallback: function (userInfo) {
         console.log(userInfo)
         if (userInfo.detail.errMsg === 'getUserInfo:ok') {
-            // console.log(this.data.array[this.data.index])
-            // console.log(this.data.phone)
             this.getLoginCode(userInfo)
         }
     },
@@ -95,9 +93,11 @@ Page({
                         let login_res = result.data
                          if (login_res.code == 0) {
                              wx.setStorageSync('token', login_res.data.token)
-                             wx.navigateTo({
-                                url: '/pages/index/index'
-                            })
+                                 setTimeout(() => {
+                                      wx.navigateTo({
+                                      url: '/pages/index/index'
+                                  })
+                             },1000)
                         } else {
                             wx.showToast({
                               title: login_res.msg,

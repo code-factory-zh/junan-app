@@ -2,10 +2,14 @@ import _fetch from '../../utils/fetch.js'
 export default {
     //  得到公司列表
     _getCompanys (obj) {
-        return _fetch('/wechat/index/get_companys', obj, 'get')
+        return _fetch('/wechat/index/get_companys', obj, 'GET')
     },
      //  得到公司列表
     _login (obj) {
-        return _fetch('/wechat/login/dologin', obj, 'post')
+        return _fetch('/wechat/login/dologin', obj, 'POST')
+    },
+     //  得到公司列表
+    _getUserInfo (obj) {
+        return _fetch('/wechat/login/get_user_inf', obj, 'GET')
     }
 }
