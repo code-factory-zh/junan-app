@@ -10,11 +10,14 @@ Page({
     onLoad (data) {
         this.setData({
             id: data.id
+        }, () => {
+            this.getQuestionList()
         })
     },
     goBack: function () {
         wx.navigateBack({
             delta: 1
         })
-    }
+    },
+    getQuestionList () {}
 })

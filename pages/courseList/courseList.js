@@ -47,9 +47,9 @@ Page({
     goExam: function (event) {
         let item = event.currentTarget.dataset['item']
         if (parseInt(item.finished) === 1) {
-            console.log('去考试')
+            // wx.setStorageSync('course_id', {'key':'value'})
             wx.navigateTo({
-              url: '/pages/selectQuestion/selectQuestion?id=' + item.id
+              url: '/pages/selectQuestion/selectQuestion'
             })
         } else {
             this.selectComponent("#cantExam")._show()

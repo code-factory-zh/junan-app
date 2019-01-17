@@ -51,7 +51,6 @@ Page({
      * 点击登录的回调
      **/
     getUserInfoCallback: function (userInfo) {
-        console.log(userInfo)
         if (userInfo.detail.errMsg === 'getUserInfo:ok') {
             this.getLoginCode(userInfo)
         }
