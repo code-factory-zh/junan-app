@@ -1,0 +1,20 @@
+// pages/selectQuestion/selectQuestion.js
+Page({
+
+    /**
+     * 页面的初始数据
+     */
+    data: {
+        id: ''
+    },
+    onLoad (data) {
+        this.setData({
+            id: data.id
+        })
+    },
+    goBack: function () {
+        wx.navigateBack({
+            delta: 1
+        })
+    }
+})

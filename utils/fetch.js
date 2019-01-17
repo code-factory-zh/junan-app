@@ -13,7 +13,28 @@ function fetch(url, data, type) {
             method: type || 'get',
             data: newData,
             success (res) {
-                resolve(res)
+                if (parseInt(res.data.code) !== -1) {
+                    resolve(res)
+                } else {
+                     try {
+                        wx.removeStorageSync('token')
+                        wx.showToast({
+                          title: '登录过期！',
+                          icon: 'none',
+                          duration: 2000,
+                          complete: function () {
+                                setTimeout(() => {
+                                    wx.reLaunch({
+                                        url: '/pages/login/login'
+                                    })
+                                }, 2000)
+                            }
+                        })
+                    } catch (e) {
+                        // Do something when catch error
+                        console.log(e)
+                    }
+                }
             },
             fail (res) {
                 console.log(res)

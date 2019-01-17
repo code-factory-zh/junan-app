@@ -48,6 +48,9 @@ Page({
         let item = event.currentTarget.dataset['item']
         if (parseInt(item.finished) === 1) {
             console.log('去考试')
+            wx.navigateTo({
+              url: '/pages/selectQuestion/selectQuestion?id=' + item.id
+            })
         } else {
             this.selectComponent("#cantExam")._show()
         }
