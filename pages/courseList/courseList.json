@@ -1,2 +1,5 @@
 {
+  "usingComponents": {
+    "cantExam": "/components/cantExam/cantExam"
+  }
 }
