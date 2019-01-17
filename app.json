@@ -1,10 +1,10 @@
 {
   "pages":[
-    "pages/courseList/courseList",
     "pages/login/login",
     "pages/index/index",
     "pages/score/score",
-    "pages/chapterList/chapterList"
+    "pages/chapterList/chapterList",
+    "pages/courseList/courseList"
   ],
   "window":{
     "backgroundTextStyle":"light",
