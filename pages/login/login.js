@@ -67,9 +67,6 @@ Page({
                 this.setData({
                     code: res.code
                 },() => {
-                    console.log(this.data.code)
-                    console.log(this.data.phone)
-                    console.log(this.data.array, this.data.index)
                     if (this.data.index === '') {
                         wx.showToast({
                           title: '请选择企业',
@@ -93,11 +90,9 @@ Page({
                         let login_res = result.data
                          if (login_res.code == 0) {
                              wx.setStorageSync('token', login_res.data.token)
-                                 setTimeout(() => {
-                                      wx.navigateTo({
-                                      url: '/pages/index/index'
-                                  })
-                             },1000)
+                             wx.navigateTo({
+                                 url: '/pages/index/index'
+                             })
                         } else {
                             wx.showToast({
                               title: login_res.msg,

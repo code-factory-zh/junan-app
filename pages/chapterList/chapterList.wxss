@@ -22,11 +22,64 @@
     line-height: 70rpx;
     border-bottom: 4rpx solid transparent;
 }
-.on{
+.on1{
     color: #0084ff;
     border-bottom: 4rpx solid #0084ff;
 }
 .video{
     width: 100%;
     height: 422rpx;
+}
+.chapter{
+    width: 690rpx;
+    margin: 30rpx auto;
+    background: #fff;
+    border-radius: 6rpx;
+    box-shadow: 2rpx 2rpx 5rpx #eee;
+    padding: 35rpx 40rpx 35rpx 40rpx;
+    box-sizing: border-box;
+}
+.short{
+    height: 640rpx;
+}
+.high{
+    height: 1060rpx;
+}
+.inner{
+    position: relative;
+}
+.line{
+    position:absolute;
+    width: 2rpx;
+    left: 8rpx;
+    top: 0;
+    height: 100%;
+    padding: 20rpx 0;
+    box-sizing: border-box;
+}
+.line2{
+    height: 100%;
+    background: #eee;
+}
+.title{
+    font-size: 30rpx;
+    color: #5a5a5a;
+    position: relative;
+    padding: 6rpx 0 16rpx 35rpx;
+    line-height: 46rpx;
+}
+.title.on{
+    color: #0084ff;
+}
+.circle{
+    position: absolute;
+    width: 20rpx;
+    height: 20rpx;
+    background: #999;
+    left: 0rpx;
+    top: 20rpx;
+    border-radius: 50%;
+}
+.title.on .circle{
+    background: #0084ff;
 }

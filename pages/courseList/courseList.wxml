@@ -2,7 +2,7 @@
 <view class="container">
     <view class="pageHead"><image src="/static/img/common/icon-left-black.png" class="goBackImg" bindtap="goBack"></image>知识学堂</view>
     <image src="/static/img/courseList/courseListBanner.png" class="banner"></image>
-    <view class="line">
+    <view class="line" bindtap="goChapter">
         <view class="courseInfo">
             <view class="courseName">钳工入门1</view>
             <view class="chapter">
@@ -12,7 +12,7 @@
         </view>
         <button class="examBtn redBtn" plain="true" size="mini">考试</button>
     </view>
-    <view class="line">
+    <view class="line" bindtap="goChapter">
         <view class="courseInfo">
             <view class="courseName">钳工入门2</view>
             <view class="chapter">
