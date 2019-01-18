@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-    <view class="pageHead"><image src="/static/img/common/icon-left-black.png" class="goBackImg" bindtap="goBack"></image>钳工入门</view>
+    <view class="pageHead"><image src="/static/img/common/icon-left-black.png" class="goBackImg" bindtap="goBack"></image>{{courseName}}</view>
     <video class="video" wx:if="{{isShowVideo}}" src="{{videoUrl}}" controls></video>
     <view class="tab">
         <view class="half" bindtap="toggleTab" data-num="1"><text class="normal {{tab===1?'on1':''}}" data-num="1">简介</text></view>
@@ -9,21 +9,7 @@
     <scroll-view scroll-y="true" class="chapter {{isShowVideo?'short':'high'}}" wx:if="{{tab===2}}">
         <view class="inner">
             <view class="line"><view class="line2"></view></view>
-            <view class="title on"><view class="circle"></view>第一章 课程整体概述课程整体概述课程整体概述</view>
-            <view class="title"><view class="circle"></view>第二章 课程整体</view>
-            <view class="title"><view class="circle"></view>第三章 课程概述</view>
-            <view class="title"><view class="circle"></view>第四章 课程整体课程整体概述</view>
-            <view class="title"><view class="circle"></view>第五章 课程整体概述</view>
-            <view class="title on"><view class="circle"></view>第一章 课程整体概述课程整体概述课程整体概述</view>
-            <view class="title"><view class="circle"></view>第二章 课程整体</view>
-            <view class="title"><view class="circle"></view>第三章 课程概述</view>
-            <view class="title"><view class="circle"></view>第四章 课程整体课程整体概述</view>
-            <view class="title"><view class="circle"></view>第五章 课程整体概述</view>
-            <view class="title on"><view class="circle"></view>第一章 课程整体概述课程整体概述课程整体概述</view>
-            <view class="title"><view class="circle"></view>第二章 课程整体</view>
-            <view class="title"><view class="circle"></view>第三章 课程概述</view>
-            <view class="title"><view class="circle"></view>第四章 课程整体课程整体概述</view>
-            <view class="title"><view class="circle"></view>第五章 课程整体概述</view>
+            <view class="title {{chapter_id==item.id?'on':''}}" wx:for="{{chapterList}}" wx:key="{{index}}" bindtap="checkChapterType" data-item="{{item}}"><view class="circle"></view>{{item.num}} {{item.chapter_name}}</view>
         </view>
     </scroll-view>
 </view>
