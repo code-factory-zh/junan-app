@@ -14,6 +14,7 @@ Component({
             this.setData({
                 showFlag: false
             })
-        }
+        },
+        prevent() { }
     }
 })
