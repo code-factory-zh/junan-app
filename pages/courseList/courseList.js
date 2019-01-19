@@ -68,6 +68,8 @@ Page({
                         wx.navigateTo({
                           url: '/pages/scoreInfo/scoreInfo?score=' + res.data.score
                         })
+                    } else {
+                        this.getFirstQuestionType(item)
                     }
                 } else {
                     wx.showToast({
@@ -77,12 +79,37 @@ Page({
                     })
                 }
             })
-            wx.setStorageSync('exam_course_id', item.course_id)
             // wx.navigateTo({
             //   url: '/pages/selectQuestion/selectQuestion'
             // })
         } else {
             this.selectComponent("#cantExam")._show()
         }
+    },
+    // 请求第一个题目的类型，以跳转不同的页面,题目类型 1=单选 2=多选 3=判断
+    getFirstQuestionType:function (item) {
+        wx.setStorageSync('exam_course_id', item.course_id)
+        CourseList._getFirstQuestionType({
+            course_id: item.course_id
+        }).then(result => {
+            let res = result.data
+            if (res.code == 0) {
+                console.log(res)
+                let type = res.data.first_question_info.type 
+                if (type == 1) {
+                    console.log('单选')
+                } else if (type == 2) {
+                    console.log('多选')
+                } else if (type == 3) {
+                    console.log('判断')
+                }
+            } else {
+                wx.showToast({
+                    title: res.msg,
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
+        })
     }
 })

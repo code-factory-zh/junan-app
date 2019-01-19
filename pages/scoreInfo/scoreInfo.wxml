@@ -1,9 +1,5 @@
-<!--index.wxml-->
+<!--scoreInfo.wxml-->
 <view class="container">
-    <!-- <view class="pageHead"><image src="/static/img/common/icon-left-white.png" class="goBackImg" bindtap="goBack"></image>考试成绩</view> -->
-    <!-- <view class="backAndNum">
-        <image src="/static/img/scoreInfo/scoreBack.png" class="backImg"></image>
-    </view> -->
     <view class="content">
         <view class="pageHead"><image src="/static/img/common/icon-left-white.png" class="goBackImg" bindtap="goBack"></image>考试成绩</view>
         <image src="/static/img/scoreInfo/scoreBack.png" class="backImg"></image>
