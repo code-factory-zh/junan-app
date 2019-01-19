@@ -8,11 +8,6 @@ Page({
         id: ''
     },
     onLoad (data) {
-        this.setData({
-            id: data.id
-        }, () => {
-            this.getQuestionList()
-        })
     },
     goBack: function () {
         wx.navigateBack({

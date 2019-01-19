@@ -3,7 +3,7 @@
     <view class="loginBack">
         <image src="/static/img/login/loginBack.png" class="loginBackImg"></image>
         <image src="/static/img/login/logo.png" class="logoImg"></image>
-        <text class="appName">君安</text>
+        <text class="appName">{{appName}}</text>
     </view>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="{{'company_name'}}">
         <view class="picker">

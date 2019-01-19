@@ -56,7 +56,7 @@ Page({
     goExam: function (event) {
         let item = event.currentTarget.dataset['item']
         if (parseInt(item.finished) === 1) {
-            // wx.setStorageSync('course_id', {'key':'value'})
+            wx.setStorageSync('exam_course_id', item.course_id)
             wx.navigateTo({
               url: '/pages/selectQuestion/selectQuestion'
             })

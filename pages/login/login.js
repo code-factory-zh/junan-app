@@ -6,6 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
+        appName: '君安',
         array: [],
         index: '',
         phone: '',
@@ -22,7 +23,8 @@ Page({
             let res = result.data
             if (res.code == 0) {
                 this.setData({
-                    array: res.data
+                    appName: res.data.company_name,
+                    array: res.data.list
                 })
             } else {
                 this.setData({
