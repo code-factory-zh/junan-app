@@ -38,9 +38,7 @@ Page({
             if (parseInt(res.code) === 0) {
                 console.log(res)
                 this.setData({
-                    bannerUrl: res.data.banner
-                })
-                this.setData({
+                    bannerUrl: res.data.banner,
                     list: res.data.list
                 })
             } else {

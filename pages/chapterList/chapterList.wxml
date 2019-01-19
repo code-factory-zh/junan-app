@@ -12,4 +12,7 @@
             <view class="title {{chapter_id==item.id?'on':''}}" wx:for="{{chapterList}}" wx:key="{{index}}" bindtap="checkChapterType" data-item="{{item}}"><view class="circle"></view>{{item.num}} {{item.chapter_name}}</view>
         </view>
     </scroll-view>
+    <scroll-view scroll-y="true" class="chapter {{isShowVideo?'short':'high'}}" wx:if="{{tab===1}}">
+        {{course_into}}
+    </scroll-view>
 </view>

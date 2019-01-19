@@ -28,6 +28,11 @@ Page({
                 this.setData({
                     array: []
                 })
+                wx.showToast({
+                    title: '获取企业列表失败！',
+                    icon: 'none',
+                    duration: 2000
+                })
             }
         })
     },
@@ -53,6 +58,8 @@ Page({
     getUserInfoCallback: function (userInfo) {
         if (userInfo.detail.errMsg === 'getUserInfo:ok') {
             this.getLoginCode(userInfo)
+        } else {
+            console.log(userInfo)
         }
     },
     /**

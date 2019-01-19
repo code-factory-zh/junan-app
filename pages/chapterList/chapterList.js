@@ -13,6 +13,7 @@ Page({
         chapter_id: '',
         isFirstComeCourse: false,
         courseName: '',
+        course_into: '', // 简介
         chapterList: [] // 章节列表
     },
     onLoad: function(){
@@ -103,7 +104,8 @@ Page({
                 wx.removeStorageSync('isFirstComeCourse')
                 this.setData({
                     chapter_id: chapter_id,
-                    chapterList: res.data.list
+                    chapterList: res.data.list,
+                    course_into: res.data.detail.course_detail
                 }, () => {
                     this.getChapterData()
                 })
