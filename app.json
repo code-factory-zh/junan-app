@@ -1,6 +1,7 @@
 {
   "pages":[
     "pages/courseList/courseList",
+    "pages/scoreInfo/scoreInfo",
     "pages/login/login",
     "pages/chapterList/chapterList",
     "pages/selectQuestion/selectQuestion",

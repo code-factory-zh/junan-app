@@ -5,9 +5,9 @@ Page({
      * 页面的初始数据
      */
     data: {
-        id: ''
+        course_id: ''
     },
-    onLoad (data) {
+    onLoad () {
     },
     goBack: function () {
         wx.navigateBack({

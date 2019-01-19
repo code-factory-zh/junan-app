@@ -56,10 +56,31 @@ Page({
     goExam: function (event) {
         let item = event.currentTarget.dataset['item']
         if (parseInt(item.finished) === 1) {
-            wx.setStorageSync('exam_course_id', item.course_id)
-            wx.navigateTo({
-              url: '/pages/selectQuestion/selectQuestion'
+            console.log(CourseList)
+            CourseList._getFirstQuestionType({
+                course_id: item.course_id
+            }).then(result => {
+                let res = result.data
+                if (parseInt(res.code) === 0) {
+                    console.log(res)
+                    // 已经有分数了，跳转提示分数的页面
+                    if (res.data.hasOwnProperty('score')) {
+                        wx.navigateTo({
+                          url: '/pages/scoreInfo/scoreInfo?score=' + res.data.score
+                        })
+                    }
+                } else {
+                    wx.showToast({
+                        title: res.msg,
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }
             })
+            wx.setStorageSync('exam_course_id', item.course_id)
+            // wx.navigateTo({
+            //   url: '/pages/selectQuestion/selectQuestion'
+            // })
         } else {
             this.selectComponent("#cantExam")._show()
         }
