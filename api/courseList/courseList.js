@@ -15,5 +15,9 @@ export default {
     //  点击考试按钮，通知后台，判断第一道题是什么类型,题目类型 1=单选 2=多选 3=判断 4=填空
     _saveAnswer (obj) {
         return _fetch('/wechat/exam/answer', obj, 'POST')
+    },
+     //  查看全部题目的状态
+    _getAllQuestion (obj) {
+        return _fetch('/wechat/exam/get_exam_question', obj, 'GET')
     }
 }

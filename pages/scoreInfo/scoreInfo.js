@@ -19,7 +19,8 @@ Page({
         console.log(score)
         let x = 96 // x轴
         let y = 96 // y轴
-        let r = 96 - 8 // r减线条粗的一半
+        let width = 16
+        let r = 96 - (width / 2) // r减线条粗的一半
         // 起始点
         let beginAngle = 0.75 * Math.PI
         // 深色环形结束弧度
@@ -45,7 +46,7 @@ Page({
         }
         // 绘制深色扇形
         context.setStrokeStyle('#4f7be9')
-        context.setLineWidth(15)
+        context.setLineWidth(width)
         context.arc(x, y, r, beginAngle, darkEndAngle)
         context.setLineCap("round")
         context.stroke()

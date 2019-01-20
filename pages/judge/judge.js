@@ -22,7 +22,7 @@ Page({
         let expireTime = wx.getStorageSync('exam_finish_time')
         let now = new Date().getTime()
         let timeExpire = expireTime - now
-        if (timeExpire > 0) { // 时间还有剩余就倒数
+        if (timeExpire >= 0) { // 时间还有剩余就倒数
              let mins = parseInt(timeExpire / 1000 / 60)
             let seconds = parseInt(timeExpire / 1000 % 60)
             let time = mins + ':' + seconds
