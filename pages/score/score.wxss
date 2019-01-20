@@ -25,6 +25,7 @@
 }
 .red{
     color: #ff4400;
+    margin-left: 10rpx;
 }
 .redBar{
     width: 6rpx;

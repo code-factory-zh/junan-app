@@ -1,14 +1,14 @@
 {
   "pages":[
-    "pages/courseList/courseList",
+    "pages/index/index",
     "pages/login/login",
+    "pages/courseList/courseList",
     "pages/singleChoose/singleChoose",
     "pages/mutipleChooice/mutipleChooice",
     "pages/judge/judge",
     "pages/scoreInfo/scoreInfo",
     "pages/chapterList/chapterList",
     "pages/selectQuestion/selectQuestion",
-    "pages/index/index",
     "pages/score/score"
   ],
   "window":{
