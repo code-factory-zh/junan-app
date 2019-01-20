@@ -69,7 +69,7 @@ Page({
                           url: '/pages/scoreInfo/scoreInfo?score=' + res.data.score
                         })
                     } else {
-                        this.getFirstQuestionType(item)
+                        this.getFirstQuestionType(res.data)
                     }
                 } else {
                     wx.showToast({
@@ -87,17 +87,20 @@ Page({
         }
     },
     // 请求第一个题目的类型，以跳转不同的页面,题目类型 1=单选 2=多选 3=判断
-    getFirstQuestionType:function (item) {
-        wx.setStorageSync('exam_course_id', item.course_id)
+    getFirstQuestionType:function (data) {
         CourseList._getFirstQuestionType({
-            course_id: item.course_id
+            course_id: data.first_question_info.course_id
         }).then(result => {
             let res = result.data
             if (res.code == 0) {
-                console.log(res)
                 let type = res.data.first_question_info.type 
+                wx.setStorageSync('exam_question_id', data.exam_question_id) // 这套试题id
+                wx.setStorageSync('total_question', data.count) // 题目总数
+                wx.setStorageSync('now_question_id', 1) // 当前题目id
                 if (type == 1) {
-                    console.log('单选')
+                    wx.navigateTo({
+                      url: '/pages/singleChoose/singleChoose'
+                    })
                 } else if (type == 2) {
                     console.log('多选')
                 } else if (type == 3) {
