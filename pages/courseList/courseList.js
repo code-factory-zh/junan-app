@@ -93,7 +93,7 @@ Page({
         }).then(result => {
             let res = result.data
             if (res.code == 0) {
-                let type = res.data.first_question_info.type 
+                let type = res.data.first_question_info.type
                 wx.setStorageSync('exam_question_id', data.exam_question_id) // 这套试题id
                 wx.setStorageSync('total_question', data.count) // 题目总数
                 wx.setStorageSync('now_question_id', 1) // 当前题目id

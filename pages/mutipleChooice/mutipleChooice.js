@@ -6,7 +6,7 @@ Page({
      * 页面的初始数据
      */
     data: {
-        answerIndex: '-1', // 是否选中此选项
+        isOnList: [], // 是否选中此选项
         isLastQuestion: 0, // 是否最后一题
         letter: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
         title: '', // 题目
@@ -37,32 +37,25 @@ Page({
         }).then(result => {
             let res = result.data
             if (res.code == 0) {
+                console.log(res)
                 // 初始化哪些选项是选中的
                 if (res.data.answer) {
                     try {
+                        let isOnList = []
+                        let arr = res.data.answer.split(',')
+                        for (let i = 0; i < res.data.option.length; i++) {
+                            if (arr.includes((i + 1).toString())) {
+                                isOnList[i] = true
+                            } else {
+                                isOnList[i] = false
+                            }
+                        }
                         this.setData({
-                            answerIndex: parseInt(res.data.answer) - 1
+                            isOnList: isOnList
                         })
                     } catch (err) {
                         console.log(err)
                     }
-                    // try {
-                    //     let arr = res.data.answer.split(',')
-                    //     console.log(arr) // [1,2]
-                    //     for (let i = 0; i < res.data.option.length; i++) {
-                    //         if (arr.includes((i + 1).toString())) {
-                    //             isOnList[i] = true
-                    //         } else {
-                    //             isOnList[i] = false
-                    //         }
-                    //     }
-                    //     console.log(isOnList)
-                    //     this.setData({
-                    //         isOnList: isOnList
-                    //     })
-                    // } catch (err) {
-                    //     console.log(err)
-                    // }
                 }
                 this.setData({
                     title: res.data.title,
@@ -81,13 +74,19 @@ Page({
     // 选择一个答案
     choose:function(event) {
         let index = event.currentTarget.dataset.index
+        let isOnList = this.data.isOnList
+        if (this.data.isOnList[index]) {
+            isOnList[index] = false
+        } else {
+            isOnList[index] = true
+        }
         this.setData({
-            answerIndex: index
+            isOnList: isOnList
         })
     },
     // 提交答案
     saveAnswer: function () {
-        if (this.data.answerIndex == '-1') {
+        if (this.data.isOnList.length == 0) {
              wx.showToast({
                 title: '请选择答案！',
                 icon: 'none',
@@ -95,13 +94,20 @@ Page({
             })
              return false
         }
+        let answer = []
+        for (let i = 0; i < this.data.isOnList.length; i++) {
+            if (this.data.isOnList[i]) {
+                answer.push(i+1)
+            }
+        }
         CourseList._saveAnswer({
             exam_question_id : this.data.exam_question_id,
             question_id: this.data.now_question_id,
-            answer_id: parseInt(this.data.answerIndex) + 1
+            answer_id: answer.toString()
         }).then(result => {
             let res = result.data
             if (res.code == 0) {
+                console.log(res)
                 if (this.data.isLastQuestion == 1) {
                     console.log('弹窗组件问下交卷不')
                 } else {
@@ -133,14 +139,11 @@ Page({
                     })
                 } else if (type == 2) {
                     console.log('多选')
-                    wx.redirectTo({
+                     wx.redirectTo({
                       url: '/pages/mutipleChooice/mutipleChooice'
                     })
                 } else if (type == 3) {
                     console.log('判断')
-                    wx.redirectTo({
-                        url: '/pages/judge/judge'
-                    })
                 }
             } else {
                  wx.showToast({
