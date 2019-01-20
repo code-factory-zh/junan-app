@@ -2,15 +2,6 @@
 <view class="container">
  	<view class="pageHead"><image src="/static/img/common/icon-left-black.png" class="goBackImg" bindtap="goBack"></image>选择题目</view>
  	<view class="questions">
- 		<view class="circle">1</view>
- 		<view class="circle">2</view>
- 		<view class="circle">3</view>
- 		<view class="circle">4</view>
- 		<view class="circle">5</view>
- 		<view class="circle">6</view>
- 		<view class="circle">7</view>
- 		<view class="circle">8</view>
- 		<view class="circle">9</view>
- 		<view class="circle">10</view>
+ 		<view class="circle item.is_answer==1?'on':''" wx:for="{{questionList}}" wx:key="{{index}}" bindtap="choose" data-item="{{item}}">{{item.question_id}}</view>
  	</view>
 </view>

@@ -17,3 +17,7 @@
 	margin-bottom: 40rpx;
 	color: #ababab;
 }
+.circle.on{
+	color: #40dfc3;
+	border-color: #40dfc3;
+}

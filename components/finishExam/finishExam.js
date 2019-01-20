@@ -9,6 +9,25 @@ Component({
         countDown: ''
     },
     methods: {
+        // 交卷
+        finishExam: function () {
+            CourseList._finishExam({
+                exam_question_id: this.data.exam_question_id
+            }).then(result => {
+                let res = result.data
+                if (res.code == 0) {
+                    wx.redirectTo({
+                        url: '/pages/scoreInfo/scoreInfo?score=' + res.data.score
+                    })
+                } else {
+                     wx.showToast({
+                        title: res.msg,
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }
+            })
+        },
         _show: function () {
             this.calCountDown()
             let timer = setInterval(() => {

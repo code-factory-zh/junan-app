@@ -1,18 +1,81 @@
 // pages/selectQuestion/selectQuestion.js
+import CourseList from '../../api/courseList/courseList'
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        course_id: ''
+        exam_question_id: '',
+        now_question_id: '', // 返回哪个问题
+        questionList: [] // 试题列表
     },
     onLoad () {
-    },
-    goBack: function () {
-        wx.navigateBack({
-            delta: 1
+        this.setData({
+            exam_question_id: wx.getStorageSync('exam_question_id'),
+            now_question_id: wx.getStorageSync('now_question_id')
+        }, () => {
+            this.getQuestionList()
         })
     },
-    getQuestionList () {}
+    // 选择一道题
+    choose: function (event) {
+         let item = event.currentTarget.dataset['item']
+         console.log(item)
+         this.goTo(item.question_id)
+     },
+    // 点击返回按钮
+    goBack: function () {
+        this.goTo(this.data.now_question_id)
+    },
+    // 请求第now_question_id个问题，看看是什么类型再决定跳转到哪里,1=单选 2=多选 3=判断
+    goTo: function (now_question_id) {
+        CourseList._getQuestion({
+            question_id: now_question_id,
+            exam_question_id: this.data.exam_question_id
+        }).then(result => {
+            let res = result.data
+            if (res.code == 0) {
+                wx.setStorageSync('now_question_id', now_question_id)
+                if (res.data.type == 1) {
+                    wx.redirectTo({
+                        url: '/pages/singleChoose/singleChoose'
+                    })
+                } else if (res.data.type == 2) {
+                    wx.redirectTo({
+                         url: '/pages/mutipleChooice/mutipleChooice'
+                    })
+                } else if (res.data.type ==3) {
+                    wx.redirectTo({
+                        url: '/pages/judge/judge'
+                    })
+                }
+            } else {
+                 wx.showToast({
+                    title: res.msg,
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
+        })
+    },
+    getQuestionList () {
+        CourseList._getAllQuestion({
+            exam_question_id: this.data.exam_question_id
+        }).then(result => {
+            let res = result.data
+            if (res.code == 0) {
+                console.log(res)
+                this.setData({
+                    questionList: res.data.question_info
+                })
+            } else {
+                 wx.showToast({
+                    title: res.msg,
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
+        })
+    }
 })

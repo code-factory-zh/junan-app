@@ -31,6 +31,12 @@ Page({
             this.getQuestion()
         })
     },
+    // 前往选择题目
+    goSelQuestion: function () {
+        wx.redirectTo({
+            url: '/pages/selectQuestion/selectQuestion'
+        })
+    },
     // 倒计时
     calCountDown: function () {
         let expireTime = wx.getStorageSync('exam_finish_time')
@@ -70,23 +76,6 @@ Page({
                     } catch (err) {
                         console.log(err)
                     }
-                    // try {
-                    //     let arr = res.data.answer.split(',')
-                    //     console.log(arr) // [1,2]
-                    //     for (let i = 0; i < res.data.option.length; i++) {
-                    //         if (arr.includes((i + 1).toString())) {
-                    //             isOnList[i] = true
-                    //         } else {
-                    //             isOnList[i] = false
-                    //         }
-                    //     }
-                    //     console.log(isOnList)
-                    //     this.setData({
-                    //         isOnList: isOnList
-                    //     })
-                    // } catch (err) {
-                    //     console.log(err)
-                    // }
                 }
                 this.setData({
                     title: res.data.title,
@@ -174,5 +163,9 @@ Page({
                 })
             }
         })
+    },
+    // 打开交卷的弹窗
+    finishExam: function () {
+        this.selectComponent("#finishExam")._show()
     }
 })

@@ -31,6 +31,31 @@ Page({
             this.getQuestion()
         })
     },
+    // 交卷
+    finishExam: function () {
+        CourseList._finishExam({
+            exam_question_id: this.data.exam_question_id
+        }).then(result => {
+            let res = result.data
+            if (res.code == 0) {
+                wx.redirectTo({
+                    url: '/pages/scoreInfo/scoreInfo?score=' + res.data.score
+                })
+            } else {
+                 wx.showToast({
+                    title: res.msg,
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
+        })
+    },
+    // 前往选择题目
+    goSelQuestion: function () {
+        wx.redirectTo({
+            url: '/pages/selectQuestion/selectQuestion'
+        })
+    },
      // 倒计时
     calCountDown: function () {
         let expireTime = wx.getStorageSync('exam_finish_time')
@@ -45,6 +70,7 @@ Page({
             })
         } else { // 没时间了就提交试卷
             console.log('提交试卷')
+            this.finishExam()
             clearInterval(this.data.timer)
         }
     },
@@ -180,5 +206,9 @@ Page({
                 })
             }
         })
+    },
+    // 打开交卷的弹窗
+    finishExam: function () {
+        this.selectComponent("#finishExam")._show()
     }
 })

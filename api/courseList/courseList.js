@@ -16,8 +16,12 @@ export default {
     _saveAnswer (obj) {
         return _fetch('/wechat/exam/answer', obj, 'POST')
     },
-     //  查看全部题目的状态
+    //  查看全部题目的状态
     _getAllQuestion (obj) {
         return _fetch('/wechat/exam/get_exam_question', obj, 'GET')
+    },
+    //  交卷
+    _finishExam (obj) {
+        return _fetch('/wechat/exam/finish_exam', obj, 'POST')
     }
 }

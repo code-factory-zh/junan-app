@@ -13,6 +13,9 @@ Page({
         wx.navigateBack({
             delta: 1
         })
+        // wx.redirectTo({
+        //     url: '/pages/courseList/courseList'
+        // })
     },
     // 绘制环形成绩
     drawCanvas: function (score) {
