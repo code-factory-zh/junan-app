@@ -17,20 +17,6 @@ Page({
         now_question_id: '', // 当前题目的id
         exam_question_id: '' // 试题id
     },
-    onLoad: function () {
-        this.calCountDown()
-        let timer = setInterval(() => {
-            this.calCountDown()
-        }, 1000)
-        this.setData({
-            total: wx.getStorageSync('total_question'),
-            now_question_id: wx.getStorageSync('now_question_id'),
-            exam_question_id: wx.getStorageSync('exam_question_id'),
-            timer: timer
-        }, () => {
-            this.getQuestion()
-        })
-    },
     // 倒计时
     calCountDown: function () {
         let expireTime = wx.getStorageSync('exam_finish_time')
@@ -47,6 +33,20 @@ Page({
             console.log('提交试卷')
             clearInterval(this.data.timer)
         }
+    },
+    onLoad: function () {
+        this.calCountDown()
+        let timer = setInterval(() => {
+            this.calCountDown()
+        }, 1000)
+        this.setData({
+            total: wx.getStorageSync('total_question'),
+            now_question_id: wx.getStorageSync('now_question_id'),
+            exam_question_id: wx.getStorageSync('exam_question_id'),
+            timer: timer
+        }, () => {
+            this.getQuestion()
+        })
     },
     goBack: function () {
         wx.navigateBack({
@@ -70,23 +70,6 @@ Page({
                     } catch (err) {
                         console.log(err)
                     }
-                    // try {
-                    //     let arr = res.data.answer.split(',')
-                    //     console.log(arr) // [1,2]
-                    //     for (let i = 0; i < res.data.option.length; i++) {
-                    //         if (arr.includes((i + 1).toString())) {
-                    //             isOnList[i] = true
-                    //         } else {
-                    //             isOnList[i] = false
-                    //         }
-                    //     }
-                    //     console.log(isOnList)
-                    //     this.setData({
-                    //         isOnList: isOnList
-                    //     })
-                    // } catch (err) {
-                    //     console.log(err)
-                    // }
                 }
                 this.setData({
                     title: res.data.title,
@@ -128,6 +111,8 @@ Page({
             if (res.code == 0) {
                 if (this.data.isLastQuestion == 1) {
                     console.log('弹窗组件问下交卷不')
+                    console.log(this.selectComponent("#finishExam"))
+                    this.selectComponent("#finishExam")._show()
                 } else {
                     console.log('前往下一题')
                     this.getNextQuestionType()

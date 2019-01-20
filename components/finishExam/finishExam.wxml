@@ -1,0 +1,5 @@
+<!--index.wxml-->
+<view class="win {{showFlag?'show':''}}" bindtap="_close">
+    <view class="inner" catch:tap="prevent">
+    </view>
+</view>

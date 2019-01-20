@@ -6,6 +6,8 @@ Page({
      * 页面的初始数据
      */
     data: {
+        timer: null,
+        countDown: '',
         isOnList: [], // 是否选中此选项
         isLastQuestion: 0, // 是否最后一题
         letter: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
@@ -16,13 +18,35 @@ Page({
         exam_question_id: '' // 试题id
     },
     onLoad: function () {
+        this.calCountDown()
+        let timer = setInterval(() => {
+            this.calCountDown()
+        }, 1000)
         this.setData({
             total: wx.getStorageSync('total_question'),
             now_question_id: wx.getStorageSync('now_question_id'),
-            exam_question_id: wx.getStorageSync('exam_question_id')
+            exam_question_id: wx.getStorageSync('exam_question_id'),
+            timer: timer
         }, () => {
             this.getQuestion()
         })
+    },
+     // 倒计时
+    calCountDown: function () {
+        let expireTime = wx.getStorageSync('exam_finish_time')
+        let now = new Date().getTime()
+        let timeExpire = expireTime - now
+        if (timeExpire > 0) { // 时间还有剩余就倒数
+             let mins = parseInt(timeExpire / 1000 / 60)
+            let seconds = parseInt(timeExpire / 1000 % 60)
+            let time = mins + ':' + seconds
+            this.setData({
+                countDown: time
+            })
+        } else { // 没时间了就提交试卷
+            console.log('提交试卷')
+            clearInterval(this.data.timer)
+        }
     },
     goBack: function () {
         wx.navigateBack({
@@ -144,6 +168,9 @@ Page({
                     })
                 } else if (type == 3) {
                     console.log('判断')
+                     wx.redirectTo({
+                        url: '/pages/judge/judge'
+                    })
                 }
             } else {
                  wx.showToast({

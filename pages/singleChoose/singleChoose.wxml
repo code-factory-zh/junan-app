@@ -3,6 +3,7 @@
     <view class="pageHead"><image src="/static/img/common/icon-left-black.png" class="goBackImg" bindtap="goBack"></image>考试</view>
     <view class="examBack">
         <image src="/static/img/singleChoose/examBack.png" class="examBackImg"></image>
+        <view class="countDown">倒计时 {{countDown}}</view>
     </view>
     <view scroll-y="true" class="questionContent">
         <scroll-view scroll-y="true" class="question">
@@ -16,3 +17,4 @@
         <view class="total"><image src="/static/img/singleChoose/total.png" class="totalImg"></image>{{now_question_id}}/{{total}}</view>
     </view>
 </view>
+<finishExam id="finishExam"></finishExam>

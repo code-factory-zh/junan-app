@@ -106,3 +106,12 @@
     margin-top: 80rpx;
     margin-bottom: 50rpx;
 }
+.countDown{
+    position: absolute;
+    left: 0;
+    top: 30rpx;
+    font-size: 30rpx;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+}

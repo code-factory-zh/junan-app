@@ -97,14 +97,23 @@ Page({
                 wx.setStorageSync('exam_question_id', data.exam_question_id) // 这套试题id
                 wx.setStorageSync('total_question', data.count) // 题目总数
                 wx.setStorageSync('now_question_id', 1) // 当前题目id
+                let createTime = parseInt(res.data.exam_create_time) * 1000
+                let finishTime = createTime + parseInt(res.data.exam_time) * 60 * 1000
+                wx.setStorageSync('exam_finish_time', finishTime) // 对比这个时间戳，到了就强制提交考试成绩
                 if (type == 1) {
                     wx.navigateTo({
                       url: '/pages/singleChoose/singleChoose'
                     })
                 } else if (type == 2) {
                     console.log('多选')
+                    wx.navigateTo({
+                      url: '/pages/mutipleChooice/mutipleChooice'
+                    })
                 } else if (type == 3) {
                     console.log('判断')
+                     wx.navigateTo({
+                      url: '/pages/judge/judge'
+                    })
                 }
             } else {
                 wx.showToast({

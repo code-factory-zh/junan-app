@@ -1,0 +1,34 @@
+/* pages/index/cantExam.wxss */
+.win{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 50;
+    background: rgba(0, 0, 0, .8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all .3s;
+}
+.win.show{
+    visibility: visible;
+    opacity: 1;
+}
+.inner{
+    width: 500rpx;
+    height: 542rpx;
+    background: #fff;
+    border-radius: 16rpx;
+    position: relative;
+}
+.close{
+    position: absolute;
+    right: 20rpx;
+    top: 20rpx;
+    width: 44rpx;
+    height: 44rpx;
+}
