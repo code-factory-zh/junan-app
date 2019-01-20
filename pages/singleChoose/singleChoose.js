@@ -31,6 +31,25 @@ Page({
             this.getQuestion()
         })
     },
+    // 交卷
+    finishExam: function () {
+        CourseList._finishExam({
+            exam_question_id: this.data.exam_question_id
+        }).then(result => {
+            let res = result.data
+            if (res.code == 0) {
+                wx.redirectTo({
+                    url: '/pages/scoreInfo/scoreInfo?score=' + res.data.score
+                })
+            } else {
+                 wx.showToast({
+                    title: res.msg,
+                    icon: 'none',
+                    duration: 2000
+                })
+            }
+        })
+    },
     // 前往选择题目
     goSelQuestion: function () {
         wx.redirectTo({
@@ -50,7 +69,7 @@ Page({
                 countDown: time
             })
         } else { // 没时间了就提交试卷
-            console.log('提交试卷')
+            this.finishExam()
             clearInterval(this.data.timer)
         }
     },
