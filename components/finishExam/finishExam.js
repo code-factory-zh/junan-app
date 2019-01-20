@@ -96,7 +96,6 @@ Component({
             let width = 8 // 画笔宽度 
             let r = 76 - width / 2  // r - 画笔宽度
             let context = wx.createCanvasContext('examCanvas', this)
-            console.log(context)
             // 绘制深色扇形
             context.setStrokeStyle('#eeeeee')
             context.setLineWidth(width)
