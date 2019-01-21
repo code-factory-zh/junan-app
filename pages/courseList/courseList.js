@@ -56,7 +56,10 @@ Page({
     goExam: function (event) {
         let item = event.currentTarget.dataset['item']
         if (parseInt(item.finished) === 1) {
-            console.log(CourseList)
+            wx.showLoading({
+                title: '加载中',
+                mask: true
+            })
             CourseList._getFirstQuestionType({
                 course_id: item.course_id
             }).then(result => {
@@ -65,6 +68,7 @@ Page({
                     console.log(res)
                     // 已经有分数了，跳转提示分数的页面
                     if (res.data.hasOwnProperty('score')) {
+                        wx.hideLoading()
                         wx.navigateTo({
                           url: '/pages/scoreInfo/scoreInfo?score=' + res.data.score
                         })
@@ -72,6 +76,7 @@ Page({
                         this.getFirstQuestionType(res.data)
                     }
                 } else {
+                    wx.hideLoading()
                     wx.showToast({
                         title: res.msg,
                         icon: 'none',
@@ -91,6 +96,7 @@ Page({
         CourseList._getFirstQuestionType({
             course_id: data.first_question_info.course_id
         }).then(result => {
+            wx.hideLoading()
             let res = result.data
             if (res.code == 0) {
                 let type = res.data.first_question_info.type

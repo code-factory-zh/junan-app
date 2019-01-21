@@ -58,6 +58,10 @@ Page({
      * 点击登录的回调
      **/
     getUserInfoCallback: function (userInfo) {
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
         if (userInfo.detail.errMsg === 'getUserInfo:ok') {
             this.getLoginCode(userInfo)
         } else {
@@ -95,6 +99,7 @@ Page({
                         company_id: this.data.array[this.data.index].id,
                         mobile: this.data.phone
                     }).then(result => {
+                        wx.hideLoading()
                         let login_res = result.data
                          if (login_res.code == 0) {
                              wx.setStorageSync('token', login_res.data.token)

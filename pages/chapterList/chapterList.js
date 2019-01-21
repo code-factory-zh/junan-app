@@ -29,6 +29,10 @@ Page({
      * 请求章节详情
     **/
     getChapterData () {
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
         ChapterList._getChapterData({
             course_id: this.data.course_id,
             id: this.data.chapter_id
@@ -37,6 +41,7 @@ Page({
             if (parseInt(res.code) === 0) {
                 // 1=文字 2=ppt 3=视频,这个页面只有当本章节是视频才会显示
                 if (parseInt(res.data.type) === 3) {
+                    wx.hideLoading()
                     this.setData({
                         videoUrl: res.data.content,
                         isShowVideo: true
@@ -45,20 +50,21 @@ Page({
                     this.setData({
                         isShowVideo: false
                     })
-                }
-                if (parseInt(res.data.type) === 2) {
-                    wx.downloadFile({
-                        url: res.data.content,
-                        success(r) {
-                            const filePath = r.tempFilePath
-                            wx.openDocument({
-                                filePath,
-                                success(r) {
-                                    console.log('打开文档成功')
-                                }
-                            })
-                        }
-                    })
+                    if (parseInt(res.data.type) === 2) {
+                        wx.downloadFile({
+                            url: res.data.content,
+                            success(r) {
+                                const filePath = r.tempFilePath
+                                wx.openDocument({
+                                    filePath,
+                                    success(r) {
+                                        wx.hideLoading()
+                                        console.log('打开文档成功')
+                                    }
+                                })
+                            }
+                        })
+                    }
                 }
                 this.setData({
                     courseName: res.data.course_name
@@ -89,6 +95,10 @@ Page({
      * 获取章节列表及第一章的内容数据
     **/
     getCourseData () {
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
         ChapterList._getCourseData({
             course_id: this.data.course_id
         }).then(result => {
