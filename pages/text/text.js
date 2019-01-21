@@ -123,7 +123,8 @@ Page({
                 if (type === 1) {
                     console.log('跳转文字')
                     this.setData({
-                        chapter_id: id
+                        chapter_id: id,
+                        isShowSelChapter: false
                     }, () => {
                         this.getChapterData()
                     })
