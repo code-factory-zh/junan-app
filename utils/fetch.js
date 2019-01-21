@@ -1,4 +1,5 @@
 const baseUrl = 'http://admin.joinersafe.com'
+// const baseUrl = 'study.joinersafe.com'
 function fetch(url, data, type) {
     let currentData = {
         "token": wx.getStorageSync('token') || ''
