@@ -21,7 +21,7 @@ Page({
         Score._getScoreList().then(result => {
             let res = result.data
             if (res.code == 0) {
-                let list = res.data.list
+                let list = res.data.list || []
                 for (let i = 0; i < list.length; i++) {
                     let time = list[i].use_time
                     let min = Math.floor(time / 60)
