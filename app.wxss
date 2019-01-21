@@ -8,6 +8,7 @@ page{
 }
 /* 头部样式 */
 .pageHead{
+  position: relative;
   height: 116rpx;
   background: #fff;
   font-size: 30rpx;
