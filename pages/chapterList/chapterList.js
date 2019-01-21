@@ -129,6 +129,9 @@ Page({
         wx.setStorageSync('chapter_id', item.id)
         if (type === 1) {
             console.log('跳转文字')
+            wx.redirectTo({
+                url: '/pages/text/text'
+            })
         } else if (type === 2) {
             console.log('ppt')
             this.setData({

@@ -1,8 +1,9 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/login/login",
     "pages/chapterList/chapterList",
+    "pages/text/text",
+    "pages/login/login",
+    "pages/index/index",
     "pages/courseList/courseList",
     "pages/singleChoose/singleChoose",
     "pages/mutipleChooice/mutipleChooice",
