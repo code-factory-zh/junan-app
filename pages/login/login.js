@@ -10,10 +10,27 @@ Page({
         array: [],
         index: '',
         phone: '',
-        code: ''
+        code: '',
     },
     onLoad: function () {
+        this.checkToken()
         this.getCompanys()
+    },
+    // 检查token
+    checkToken: function () {
+      if (wx.getStorageSync('token')) {
+        Login._checkToken().then(result => {
+          let res = result.data
+          console.log(res)
+          if (res.code == 0) {
+            wx.navigateTo({
+              url: '/pages/index/index'
+            })
+          } else {
+            wx.removeStorageSync('token')
+          }
+        })
+      }
     },
     /**
      * 得到公司列表

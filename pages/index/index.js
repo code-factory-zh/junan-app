@@ -5,6 +5,7 @@ Page({
      */
     data: {},
     goBack: function () {
+        wx.removeStorageSync('token')
         wx.reLaunch({
             url: '/pages/login/login'
         })

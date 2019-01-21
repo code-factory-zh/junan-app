@@ -11,5 +11,9 @@ export default {
      //  得到公司列表
     _getUserInfo (obj) {
         return _fetch('/wechat/login/get_user_inf', obj, 'GET')
+    },
+    //  检查token有效性
+    _checkToken (obj) {
+        return _fetch('/wechat/login/check', obj, 'GET')
     }
 }
