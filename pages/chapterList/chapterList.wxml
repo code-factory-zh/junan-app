@@ -2,7 +2,7 @@
 <view class="container" style="padding-top: {{navHeight}}px">
     <view class="pageHead" style="height:{{navHeight}}px">
         <image src="/static/img/common/icon-left-black.png" class="goBackImg" style="top:{{backImgTop}}px" bindtap="goBack"></image>
-        <text class="headerTitle" style="top:{{titleTop}}px">{{courseName}}111</text>
+        <text class="headerTitle" style="top:{{titleTop}}px">{{courseName}}</text>
     </view>
     <video class="video" style="top:{{navHeight}}px;height:211px;" wx:if="{{isShowVideo}}" src="{{videoUrl}}" controls></video>
     <view class="tabAndChpater" style="top:{{(isShowVideo?211:0)+navHeight}}px">

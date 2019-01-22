@@ -50,9 +50,14 @@ Page({
                         isShowVideo: false
                     })
                     if (parseInt(res.data.type) === 2) {
+                        wx.showLoading({
+                          title: '加载中',
+                          mask: true
+                        })
                         wx.downloadFile({
                             url: res.data.content,
                             success(r) {
+                                wx.hideLoading()
                                 const filePath = r.tempFilePath
                                 wx.openDocument({
                                     filePath,
