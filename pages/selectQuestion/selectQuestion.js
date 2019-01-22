@@ -1,11 +1,15 @@
 // pages/selectQuestion/selectQuestion.js
 import CourseList from '../../api/courseList/courseList'
+const app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        navHeight: app.globalData.navHeight,
+        backImgTop: app.globalData.backImgTop,
+        titleTop: app.globalData.titleTop,
         exam_question_id: '',
         now_question_id: '', // 返回哪个问题
         questionList: [] // 试题列表

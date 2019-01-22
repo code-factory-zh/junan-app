@@ -1,6 +1,10 @@
 <!--index.wxml-->
 <view class="container">
-    <view class="pageHead"><image src="/static/img/common/icon-left-black.png" class="goBackImg" bindtap="goBack"></image>考试</view>
+    <view class="pageHead" style="height:{{navHeight}}px">
+        <image src="/static/img/common/icon-left-black.png" class="goBackImg" style="top:{{backImgTop}}px" bindtap="goBack"></image>
+        <text class="headerTitle" style="top:{{titleTop}}px">考试</text>
+    </view>
+    <!-- <view class="pageHead"><image src="/static/img/common/icon-left-black.png" class="goBackImg" bindtap="goBack"></image>考试</view> -->
     <view class="examBack">
         <image src="/static/img/singleChoose/examBack.png" class="examBackImg"></image>
          <view class="countDown">倒计时 {{countDown}}</view>

@@ -1,11 +1,15 @@
 // pages/index/index.js
 import ChapterList from '../../api/chapterList/chapterList'
+const app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        navHeight: app.globalData.navHeight,
+        backImgTop: app.globalData.backImgTop,
+        titleTop: app.globalData.titleTop,
         course_id: '',
         chapter_id: '',
         chapterData: {},
@@ -56,7 +60,8 @@ Page({
     // 第一次进来获取文章
     getChapterData:function() {
         ChapterList._getChapterData({
-            id: this.data.chapter_id
+            id: this.data.chapter_id,
+            course_id: this.data.course_id
         }).then(result => {
             let res = result.data
             console.log(res)

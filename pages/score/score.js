@@ -1,11 +1,15 @@
 // pages/index/index.js
 import Score from '../../api/score/score'
+const app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        navHeight: app.globalData.navHeight,
+        backImgTop: app.globalData.backImgTop,
+        titleTop: app.globalData.titleTop,
         list: []
     },
     onLoad: function () {

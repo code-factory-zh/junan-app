@@ -29,8 +29,17 @@
 .video{
     width: 100%;
     height: 422rpx;
+    position: fixed;
+    left: 0;
+    top: 120rpx;
+    z-index: 2;
 }
 .chapter{
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    top:90rpx;
     width: 690rpx;
     margin: 30rpx auto;
     background: #fff;
@@ -38,12 +47,6 @@
     box-shadow: 2rpx 2rpx 5rpx #eee;
     padding: 35rpx 40rpx 35rpx 40rpx;
     box-sizing: border-box;
-}
-.short{
-    height: 640rpx;
-}
-.high{
-    height: 1060rpx;
 }
 .inner{
     position: relative;
@@ -82,4 +85,11 @@
 }
 .title.on .circle{
     background: #0084ff;
+}
+.tabAndChpater{
+    position: fixed;
+    left:0;
+    top:0;
+    right:0;
+    bottom:0;
 }

@@ -1,10 +1,14 @@
 // pages/scoreInfo/scoreInfo.js
+const app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        navHeight: app.globalData.navHeight,
+        backImgTop: app.globalData.backImgTop,
+        titleTop: app.globalData.titleTop
     },
     onLoad: function (data) {
         this.drawCanvas(data.score)
