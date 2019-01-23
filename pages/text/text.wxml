@@ -13,8 +13,10 @@
         <view class="xia" bindtap="goXia">下一章</view>
     </view>
     <view class="selChapter" wx:if="{{isShowSelChapter}}" bindtap="_close">
-        <view class="selDiv" catchtap="prevent">
-            <view class="chapters" wx:for="{{chapterList}}" wx:key="{{index}}" data-item="{{item}}" bindtap="checkType">第{{index+1}}章：{{item.chapter_name}}</view>
-        </view>
+        <scroll-view scroll-y="true" class="scrollContent">
+            <view class="selDiv" catchtap="prevent">
+                <view class="chapters" wx:for="{{chapterList}}" wx:key="{{index}}" data-item="{{item}}" bindtap="checkType">第{{index+1}}章：{{item.chapter_name}}</view>
+            </view>
+        </scroll-view>
     </view>
 </view>
