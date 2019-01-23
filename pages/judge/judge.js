@@ -192,6 +192,13 @@ Page({
     },
     // 打开交卷的弹窗
     finishExam: function () {
-        this.selectComponent("#finishExam")._show()
+        wx.showToast({
+            title: '考试时间到,正在交卷！',
+            icon: 'none',
+            duration: 2000,
+            mask: true
+        }, () => {
+            this.selectComponent("#finishExam").finishExam()
+        })
     }
 })

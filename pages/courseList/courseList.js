@@ -13,7 +13,7 @@ Page({
         bannerUrl: '',
         list: []
     },
-    onLoad: function () {
+    onShow: function () {
         this.getCourseList()
     },
     goBack: function () {
@@ -77,7 +77,8 @@ Page({
                           url: '/pages/scoreInfo/scoreInfo?score=' + res.data.score
                         })
                     } else {
-                        this.getFirstQuestionType(res.data)
+                        console.log(item.course_id)
+                        this.getFirstQuestionType(item.course_id)
                     }
                 } else {
                     wx.hideLoading()
@@ -96,16 +97,16 @@ Page({
         }
     },
     // 请求第一个题目的类型，以跳转不同的页面,题目类型 1=单选 2=多选 3=判断
-    getFirstQuestionType:function (data) {
+    getFirstQuestionType:function (course_id) {
         CourseList._getFirstQuestionType({
-            course_id: data.first_question_info.course_id
+            course_id: course_id
         }).then(result => {
             wx.hideLoading()
             let res = result.data
             if (res.code == 0) {
                 let type = res.data.first_question_info.type
-                wx.setStorageSync('exam_question_id', data.exam_question_id) // 这套试题id
-                wx.setStorageSync('total_question', data.count) // 题目总数
+                wx.setStorageSync('exam_question_id', res.data.exam_question_id) // 这套试题id
+                wx.setStorageSync('total_question', res.data.count) // 题目总数
                 wx.setStorageSync('now_question_id', 1) // 当前题目id
                 let createTime = parseInt(res.data.exam_create_time) * 1000
                 let finishTime = createTime + parseInt(res.data.exam_time) * 60 * 1000
