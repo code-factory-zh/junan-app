@@ -11,7 +11,7 @@ function fetch(url, data, type) {
     return new Promise((resolve, reject) => {
         wx.request({
             url: baseUrl + (url || ''),
-            method: type || 'get',
+            method: type || 'GET',
             data: newData,
             success (res) {
                 if (parseInt(res.data.code) !== -1) {

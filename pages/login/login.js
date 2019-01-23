@@ -1,5 +1,6 @@
 // pages/login/login.js
 import Login from '../../api/login/login.js'
+const { compareVersion } = require('../../utils/util.js'); // 判断微信sdk的版本号
 Page({
 
     /**
@@ -11,17 +12,41 @@ Page({
         index: '',
         phone: '',
         code: '',
+        limitSDKVersion: '1.9.0' // 版本兼容
     },
     onLoad: function () {
+        this.checkVersion()
         this.checkToken()
         this.getCompanys()
+    },
+    // 微信sdk版本限制功能
+    checkVersion: function () {
+        let flagNumber = this.is_suitable_version()
+        if (flagNumber < 0) {
+            // 版本过低
+            wx.showModal({
+                title: '提示',
+                content: '当前微信版本过低，请升级到最新微信版本后重试。',
+                complete: () => {
+                    this.checkToken()
+                }
+            })
+        } else {
+            this.checkToken()
+        }
+    },
+    // 验证用户使用的微信版本号是否合适
+    is_suitable_version: function () {
+        let datas = wx.getSystemInfoSync()
+        let flag = null
+        flag = compareVersion(datas.SDKVersion, this.data.limitSDKVersion)
+        return flag
     },
     // 检查token
     checkToken: function () {
       if (wx.getStorageSync('token')) {
         Login._checkToken().then(result => {
           let res = result.data
-          console.log(res)
           if (res.code == 0) {
             wx.navigateTo({
               url: '/pages/index/index'
