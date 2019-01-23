@@ -47,7 +47,6 @@ Page({
       if (wx.getStorageSync('token')) {
         Login._checkToken().then(result => {
           let res = result.data
-          console.log(res)
           if (res.code == 0) {
             wx.navigateTo({
               url: '/pages/index/index'

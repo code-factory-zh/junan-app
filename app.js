@@ -2,9 +2,9 @@
 import Login from './api/login/login'
 App({
     onLaunch: function () {
+        // navHeight导航高度 backImgTop图片top titleTop是title的top
         wx.getSystemInfo({
             success: res => {
-                // navHeight导航高度 backImgTop图片top titleTop是title的top
                 this.globalData.backImgTop = res.statusBarHeight + 12;
                 this.globalData.titleTop = res.statusBarHeight + 8;
                 if (res.system.includes('iOS')) {
@@ -16,6 +16,7 @@ App({
                 console.log(err);
             }
         })
+        // 检查token
         this.checkToken()
     },
     // 检查token
@@ -35,7 +36,7 @@ App({
                 url: '/pages/login/login'
             })
         }
-        if (signal) {
+        if (signal) { // 有token但是token不对，提示并跳转
             wx.removeStorageSync('token')
             wx.showToast({
                 title: '登录过期！',
