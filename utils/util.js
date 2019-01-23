@@ -1,4 +1,4 @@
-// 对比版本
+// 对比微信sdk版本
 function compareVersion(v1, v2) {
     v1 = v1.split('.')
     v2 = v2.split('.')
