@@ -142,7 +142,7 @@ Page({
                 if (this.data.isLastQuestion == 1) {
                     console.log('弹窗组件问下交卷不')
                     console.log(this.selectComponent("#finishExam"))
-                    this.selectComponent("#finishExam")._show()
+                    this.openFinishExamWin()
                 } else {
                     console.log('前往下一题')
                     this.getNextQuestionType()

@@ -141,6 +141,7 @@ Page({
             if (res.code == 0) {
                 if (this.data.isLastQuestion == 1) {
                     console.log('弹窗组件问下交卷不')
+                    this.openFinishExamWin()
                 } else {
                     console.log('前往下一题')
                     this.getNextQuestionType()
