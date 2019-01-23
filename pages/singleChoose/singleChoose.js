@@ -1,11 +1,15 @@
 // pages/index/index.js
 import CourseList from '../../api/courseList/courseList'
+const app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
+        navHeight: app.globalData.navHeight,
+        backImgTop: app.globalData.backImgTop,
+        titleTop: app.globalData.titleTop,
         timer: null,
         countDown: '',
         answerIndex: '-1', // 是否选中此选项
