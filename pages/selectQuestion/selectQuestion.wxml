@@ -6,6 +6,6 @@
     </view>
  	<!-- <view class="pageHead"><image src="/static/img/common/icon-left-black.png" class="goBackImg" bindtap="goBack"></image>选择题目</view> -->
  	<view class="questions">
- 		<view class="circle item.is_answer==1?'on':''" wx:for="{{questionList}}" wx:key="{{index}}" bindtap="choose" data-item="{{item}}">{{item.question_id}}</view>
+ 		<view class="circle {{item.is_answer==1?'on':''}}" wx:for="{{questionList}}" wx:key="{{index}}" bindtap="choose" data-item="{{item}}">{{item.question_id}}</view>
  	</view>
 </view>

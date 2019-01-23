@@ -17,7 +17,7 @@
         </scroll-view>
     </view>
     <view class="footer">
-        <view class="collection" bindtap="finishExam"><image src="/static/img/singleChoose/endExam.png" class="collectionImg"></image>交卷</view>
+        <view class="collection" bindtap="openFinishExamWin"><image src="/static/img/singleChoose/endExam.png" class="collectionImg"></image>交卷</view>
         <view class="total" bindtap="goSelQuestion"><image src="/static/img/singleChoose/total.png" class="totalImg"></image>{{now_question_id}}/{{total}}</view>
     </view>
 </view>

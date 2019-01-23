@@ -73,8 +73,9 @@ Page({
                 countDown: time
             })
         } else { // 没时间了就提交试卷
-            this.finishExam()
+            console.log('提交试卷')
             clearInterval(this.data.timer)
+            this.finishExam()
         }
     },
     goBack: function () {
@@ -188,14 +189,7 @@ Page({
         })
     },
     // 打开交卷的弹窗
-    finishExam: function () {
-        wx.showToast({
-            title: '考试时间到,正在交卷！',
-            icon: 'none',
-            duration: 2000,
-            mask: true
-        }, () => {
-            this.selectComponent("#finishExam").finishExam()
-        })
+    openFinishExamWin: function () {
+        this.selectComponent("#finishExam")._show()
     }
 })
