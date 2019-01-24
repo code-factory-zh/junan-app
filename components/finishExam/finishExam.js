@@ -6,8 +6,7 @@ Component({
         showFlag: false,
         exam_question_id: '',
         timer: null,
-        countDown: '',
-        exam_question_id: wx.getStorageSync('exam_question_id')
+        countDown: ''
     },
     methods: {
         // 交卷
@@ -36,7 +35,8 @@ Component({
             },1000)
             this.setData({
                 showFlag: true,
-                timer: timer
+                timer: timer,
+                exam_question_id: wx.getStorageSync('exam_question_id')
             })
             this.getAllQuestion()
         },
