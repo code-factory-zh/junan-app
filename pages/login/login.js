@@ -17,7 +17,34 @@ Page({
     onLoad: function () {
         this.checkVersion()
         this.checkToken()
-        this.getCompanys()
+        // this.getCompanys()
+    },
+    // 搜索企业列表
+    searchCompany: function () {
+        if (this.data.phone) {
+            Login._getCompanyByPhone({
+                mobile: this.data.phone
+            }).then(result => {
+                let res = result.data
+                console.log(res)
+                if (res.code == 0) {
+                    this.setData({
+                        array: res.data
+                    })
+                    if (res.data.length == 1) {
+                        this.setData({
+                            index: 0
+                        })
+                    }
+                } else {
+                    wx.showToast({
+                        title: '获取企业列表失败！',
+                        icon: 'none',
+                        duration: 2000
+                    })
+                }
+            })
+        }
     },
     // 微信sdk版本限制功能
     checkVersion: function () {
@@ -93,7 +120,9 @@ Page({
     **/
     bindKeyInput: function (e) {
         this.setData({
-            phone: e.detail.value
+            phone: e.detail.value,
+            array: [],
+            index: ''
         })
     },
     /**
@@ -105,7 +134,6 @@ Page({
             mask: true
         })
         if (userInfo.detail.errMsg === 'getUserInfo:ok') {
-            console.log(userInfo)
             this.getLoginCode(userInfo)
         } else {
             console.log(userInfo)
@@ -121,6 +149,7 @@ Page({
                 this.setData({
                     code: res.code
                 },() => {
+                    console.log(res.code)
                     if (this.data.index === '') {
                         wx.showToast({
                           title: '请选择企业',
@@ -138,7 +167,7 @@ Page({
                     }
                     Login._login({
                         code: this.data.code,
-                        company_id: this.data.array[this.data.index].id,
+                        company_id: this.data.array[this.data.index].company_id,
                         mobile: this.data.phone
                     }).then(result => {
                         wx.hideLoading()

@@ -5,6 +5,7 @@
         <image src="/static/img/login/logo.png" class="logoImg"></image>
         <text class="appName">{{appName}}</text>
     </view>
+    <input type="text" placeholder="请输入手机号" value="{{phone}}" bindinput="bindKeyInput" class="inputTel" bindblur="searchCompany"/>
     <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="{{'company_name'}}">
         <view class="picker">
             <text wx:if="{{index===''}}" class="pleaseSel">请选择企业</text>
@@ -12,7 +13,6 @@
             <image src="/static/img/login/down.png" class="downArrow"></image>
         </view>
     </picker>
-    <input type="text" placeholder="请输入手机号" value="{{phone}}" bindinput="bindKeyInput" class="inputTel"/>
     <view class="loginContainer">
         <button class="loginBtn" hover-class="loginBtnActive" bindtap="getLoginCode">登录</button>
     </view>

@@ -27,8 +27,8 @@
 }
 /* 公司名选择框 */
 .picker{
-    margin: 60rpx 50rpx 50rpx;
     height: 108rpx;
+    margin: 0 50rpx;
     line-height: 108rpx;
     border: 2rpx solid #f2f2f2;
     border-radius: 54rpx;
@@ -46,7 +46,7 @@
 }
 /* 手机号输入框 */
 .inputTel{
-    margin: 0 50rpx;
+    margin: 60rpx 50rpx 50rpx;
     height: 108rpx;
     border: 2rpx solid #f2f2f2;
     border-radius: 54rpx;

@@ -64,9 +64,14 @@ Page({
         })
     },
     getQuestionList () {
+        wx.showLoading({
+          title: '加载中',
+          mask: true
+        })
         CourseList._getAllQuestion({
             exam_question_id: this.data.exam_question_id
         }).then(result => {
+            wx.hideLoading()
             let res = result.data
             if (res.code == 0) {
                 console.log(res)

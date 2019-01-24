@@ -15,5 +15,9 @@ export default {
     //  检查token有效性
     _checkToken (obj) {
         return _fetch('/wechat/login/check', obj, 'GET')
+    },
+    //  根据用户手机取企业数据
+    _getCompanyByPhone (obj) {
+        return _fetch('/wechat/login/getCompanyId', obj, 'POST')
     }
 }

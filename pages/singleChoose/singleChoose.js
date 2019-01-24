@@ -93,11 +93,16 @@ Page({
     },
     // 得到这道题的详情
     getQuestion: function () {
+        wx.showLoading({
+          title: '加载中',
+          mask: true
+        })
         CourseList._getQuestion({
             question_id: this.data.now_question_id,
             exam_question_id: this.data.exam_question_id
         }).then(result => {
             let res = result.data
+            wx.hideLoading()
             if (res.code == 0) {
                 // 初始化哪些选项是选中的
                 if (res.data.answer) {
