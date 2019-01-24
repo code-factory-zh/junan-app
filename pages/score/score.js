@@ -22,7 +22,12 @@ Page({
     },
     // 得到成绩列表
     getScoreList: function () {
+        wx.showLoading({
+          title: '加载中',
+          mask: true
+        })
         Score._getScoreList().then(result => {
+            wx.hideLoading()
             let res = result.data
             if (res.code == 0) {
                 let list = res.data.list || []
