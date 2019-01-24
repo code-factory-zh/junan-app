@@ -105,6 +105,7 @@ Page({
             mask: true
         })
         if (userInfo.detail.errMsg === 'getUserInfo:ok') {
+            console.log(userInfo)
             this.getLoginCode(userInfo)
         } else {
             console.log(userInfo)
@@ -113,11 +114,10 @@ Page({
     /**
      * 得到登录用的code
     **/
-    getLoginCode (userInfo) {
+    getLoginCode () {
         wx.login({
             success: res => {
                 // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                console.log(res)
                 this.setData({
                     code: res.code
                 },() => {
