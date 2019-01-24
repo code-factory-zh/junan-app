@@ -4,9 +4,9 @@ const app = getApp();
 Component({
     data: {
         showFlag: false,
-        exam_question_id: '',
         timer: null,
-        countDown: ''
+        countDown: '',
+        exam_question_id: wx.getStorageSync('exam_question_id')
     },
     methods: {
         // 交卷
@@ -35,8 +35,7 @@ Component({
             },1000)
             this.setData({
                 showFlag: true,
-                timer: timer,
-                exam_question_id: wx.getStorageSync('exam_question_id')
+                timer: timer
             })
             this.getAllQuestion()
         },

@@ -53,9 +53,17 @@ Page({
                 countDown: time
             })
         } else { // 没时间了就提交试卷
-             console.log('提交试卷')
+            console.log('提交试卷' + this.data.timer)
             clearInterval(this.data.timer)
-            this.finishExam()
+            wx.showToast({
+                title: '考试时间到，正在交卷！',
+                icon: 'none',
+                duration: 2000,
+                mask: true,
+                success: () => {
+                    this.finishExam()
+                }
+            })
         }
     },
     onLoad: function () {
