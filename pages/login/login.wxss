@@ -44,6 +44,10 @@
     width: 28rpx;
     height: 16rpx;
 }
+.pleaseSel,.haveSelect{
+    color: #999;
+    font-size: 30rpx;
+}
 /* 手机号输入框 */
 .inputTel{
     margin: 60rpx 50rpx 50rpx;
