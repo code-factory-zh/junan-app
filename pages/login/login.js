@@ -21,10 +21,15 @@ Page({
     },
     // 搜索企业列表
     searchCompany: function () {
+        wx.showLoading({
+          title: '加载中',
+          mask: true
+        })
         if (this.data.phone) {
             Login._getCompanyByPhone({
                 mobile: this.data.phone
             }).then(result => {
+                wx.hideLoading()
                 let res = result.data
                 console.log(res)
                 if (res.code == 0) {
