@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--score.wxml-->
 <view class="container" style="padding-top:{{navHeight}}px">
     <view class="pageHead" style="height:{{navHeight}}px">
         <image src="/static/img/common/icon-left-black.png" class="goBackImg" style="top:{{backImgTop}}px" bindtap="goBack"></image>

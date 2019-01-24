@@ -1,4 +1,4 @@
-/* pages/index/index.wxss */
+/* pages/score/score.wxss */
 .title{
     font-size: 30rpx;
     line-height: 60rpx;

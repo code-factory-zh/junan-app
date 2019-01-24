@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--login.wxml-->
 <view class="container">
     <view class="loginBack">
         <image src="/static/img/login/loginBack.png" class="loginBackImg"></image>

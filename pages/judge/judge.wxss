@@ -1,4 +1,4 @@
-/* pages/singleChoose/singleChoose.wxss */
+/* pages/judge/judge.wxss */
 .footer{
     position: fixed;
     left: 0;

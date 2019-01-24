@@ -1,4 +1,4 @@
-// pages/index/index.js
+// components/finishExam/finishExam.js
 import CourseList from '../../api/courseList/courseList'
 const app = getApp();
 Component({

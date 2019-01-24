@@ -8,7 +8,7 @@ export default {
     _login (obj) {
         return _fetch('/wechat/login/dologin', obj, 'POST')
     },
-     //  得到公司列表
+     //  得到个人信息,暂时无用
     _getUserInfo (obj) {
         return _fetch('/wechat/login/get_user_inf', obj, 'GET')
     },

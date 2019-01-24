@@ -1,4 +1,4 @@
-// pages/index/index.js
+// pages/score/score.js
 import Score from '../../api/score/score'
 const app = getApp()
 Page({

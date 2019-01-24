@@ -1,4 +1,4 @@
-/* pages/index/cantExam.wxss */
+/* components/finishExam/finishExam.wxss */
 .win{
     position: fixed;
     top: 0;

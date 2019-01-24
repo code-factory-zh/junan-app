@@ -1,4 +1,4 @@
-// pages/index/index.js
+// components/cantExam/cantExam.js
 const app = getApp();
 Component({
     data: {

@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--cantExam.wxml-->
 <view class="win {{showFlag?'show':''}}" bindtap="_close">
     <view class="inner" catch:tap="prevent">
         <image src="/static/img/courseList/close.png" class="close" bindtap="_close"></image>

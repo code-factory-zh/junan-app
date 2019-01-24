@@ -1,4 +1,4 @@
-// pages/index/index.js
+// pages/chapterList/chapterList.js
 import ChapterList from '../../api/chapterList/chapterList.js'
 const app = getApp()
 Page({

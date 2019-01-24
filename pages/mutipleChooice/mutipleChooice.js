@@ -1,4 +1,4 @@
-// pages/index/index.js
+// pages/mutipleChooice/mutipleChooice.js
 import CourseList from '../../api/courseList/courseList'
 const app = getApp()
 Page({

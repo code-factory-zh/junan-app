@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--mutipleChooice.wxml-->
 <view class="container">
     <view class="pageHead" style="height:{{navHeight}}px">
         <image src="/static/img/common/icon-left-black.png" class="goBackImg" style="top:{{backImgTop}}px" bindtap="goBack"></image>

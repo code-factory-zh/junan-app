@@ -1,4 +1,4 @@
-/* pages/index/index.wxss */
+/* pages/selectQuestion/selectQuestion.wxss */
 .questions{
 	display: flex;
 	flex-wrap: wrap;

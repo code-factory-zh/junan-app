@@ -1,4 +1,4 @@
-// pages/index/index.js
+// pages/judge/judge.js
 import CourseList from '../../api/courseList/courseList'
 const app = getApp()
 Page({
