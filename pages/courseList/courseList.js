@@ -37,7 +37,12 @@ Page({
      * 请求课程
     **/
     getCourseList:function() {
+        wx.showLoading({
+            title: '加载中',
+            mask: true
+        })
         CourseList._getCourseList().then(result => {
+            wx.hideLoading()
             let res = result.data
             if (parseInt(res.code) === 0) {
                 console.log(res)

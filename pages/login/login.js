@@ -21,11 +21,11 @@ Page({
     },
     // 搜索企业列表
     searchCompany: function () {
-        wx.showLoading({
-          title: '加载中',
-          mask: true
-        })
         if (this.data.phone) {
+            wx.showLoading({
+                title: '加载中',
+                mask: true
+            })
             Login._getCompanyByPhone({
                 mobile: this.data.phone
             }).then(result => {
