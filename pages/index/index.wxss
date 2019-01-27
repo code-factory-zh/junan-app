@@ -21,3 +21,7 @@
     display: flex;
     justify-content: space-between;
 }
+.goBackImg{
+    width: 40rpx !important;
+    height: 40rpx !important;
+}
