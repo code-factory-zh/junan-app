@@ -4,7 +4,7 @@ export default {
     _getCompanys (obj) {
         return _fetch('/wechat/index/get_companys', obj, 'GET')
     },
-     //  得到公司列表
+     //  登录
     _login (obj) {
         return _fetch('/wechat/login/dologin', obj, 'POST')
     },
